@@ -24,9 +24,7 @@ class VDDataManager {
                 let decoder = JSONDecoder()
                 let reponse = try decoder.decode(UserResponse.self, from: data)
                 VDCoreDataManager.shared.save(reponse.data)
-            } catch {
-                print("error:\(error)")
-            }
+            } catch {}
         }
     }
     
