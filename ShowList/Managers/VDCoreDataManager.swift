@@ -14,6 +14,14 @@ class VDCoreDataManager {
     
     static let shared = VDCoreDataManager()
     
+    lazy var fetchedResultController : NSFetchedResultsController<NSFetchRequestResult> = {
+        let context = VDCoreDataStack.coreDataStack.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.users)
+        let nameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [nameSortDescriptor]
+       return NSFetchedResultsController(fetchRequest: request, managedObjectContext: context , sectionNameKeyPath: nil, cacheName: nil)
+    }()
+    
     func save(_ users: [VDUser]) {
         let context = VDCoreDataStack.coreDataStack.persistentContainer.viewContext
         let privateMoc = VDCoreDataStack.coreDataStack.privateMoc
@@ -49,18 +57,18 @@ class VDCoreDataManager {
         saveContext(context)
     }
     
-    func fetchUsers(completion: ([User]?) -> Void) {
-        let context = VDCoreDataStack.coreDataStack.persistentContainer.viewContext
-        let privateMoc = VDCoreDataStack.coreDataStack.privateMoc
-        privateMoc.parent = context
-        privateMoc.performAndWait {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.users)
-            do {
-                 let data = try privateMoc.fetch(request) as? [User]
-                completion(data)
-            } catch {}
-        }
-    }
+//    func fetchUsers(completion: ([User]?) -> Void) {
+//        let context = VDCoreDataStack.coreDataStack.persistentContainer.viewContext
+//        let privateMoc = VDCoreDataStack.coreDataStack.privateMoc
+//        privateMoc.parent = context
+//        privateMoc.performAndWait {
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.users)
+//            do {
+//                 let data = try privateMoc.fetch(request) as? [User]
+//                completion(data)
+//            } catch {}
+//        }
+//    }
     
     //MARK: - Private
     

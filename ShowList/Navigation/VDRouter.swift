@@ -19,7 +19,7 @@ class VDRouter {
     
     //MARK: - Public
     
-    func showEditScreen(with item: User) {
+    func showEditScreen(with item: User?) {
         let editViewController = viewController(storyboard: Storyboards.main, type: VDEditViewController.self)
         editViewController.person = item
         navigationController?.pushViewController(editViewController, animated: true)

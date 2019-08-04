@@ -21,10 +21,10 @@ class VDListTableViewCell: UITableViewCell {
 
     //MARK: - Public
     
-    func load(with person: User) {
-        nameLabel.text = person.name
+    func load(with person: User?) {
+        nameLabel.text = person?.name
         imageViewAvatar.kf.indicatorType = .activity
-        if let id = person.id {
+        if let id = person?.id {
             let urlString = String(format: API.imageUrl.rawValue, id)
             let url = URL(string: urlString)
             imageViewAvatar.kf.setImage(with: url, options: [.cacheOriginalImage])
