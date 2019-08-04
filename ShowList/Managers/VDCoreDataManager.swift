@@ -58,9 +58,7 @@ class VDCoreDataManager {
             do {
                  let data = try privateMoc.fetch(request) as? [User]
                 completion(data)
-            } catch {
-                print("Failed")
-            }
+            } catch {}
         }
     }
     

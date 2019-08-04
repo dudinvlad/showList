@@ -30,7 +30,7 @@
                                             <rect key="frame" x="20" y="15" width="70" height="69.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="MTl-Po-PoH"/>
-                                                <constraint firstAttribute="height" constant="69.5" id="vxw-dN-XUj"/>
+                                                <constraint firstAttribute="height" constant="69.5" id="bOA-rU-zVv"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvI-uf-0Aa">
@@ -42,10 +42,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="tvI-uf-0Aa" firstAttribute="centerY" secondItem="Fv5-6u-M7m" secondAttribute="centerY" id="1g0-TS-sMS"/>
-                                        <constraint firstItem="Fv5-6u-M7m" firstAttribute="top" secondItem="4b0-ZJ-LJs" secondAttribute="top" constant="15" id="JVa-de-Cjr"/>
+                                        <constraint firstAttribute="bottom" secondItem="Fv5-6u-M7m" secondAttribute="bottom" constant="15" id="3ct-8h-heT"/>
+                                        <constraint firstItem="Fv5-6u-M7m" firstAttribute="top" secondItem="4b0-ZJ-LJs" secondAttribute="top" constant="15" id="Bxm-Ld-AWo"/>
                                         <constraint firstItem="Fv5-6u-M7m" firstAttribute="leading" secondItem="4b0-ZJ-LJs" secondAttribute="leading" constant="20" id="Q9P-Hz-Sbp"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="tvI-uf-0Aa" secondAttribute="trailing" id="aWp-9T-p5N"/>
-                                        <constraint firstAttribute="bottom" secondItem="Fv5-6u-M7m" secondAttribute="bottom" constant="15" id="e4n-cG-mcw"/>
                                         <constraint firstItem="tvI-uf-0Aa" firstAttribute="leading" secondItem="Fv5-6u-M7m" secondAttribute="trailing" constant="20" id="n8B-55-Yfa"/>
                                     </constraints>
                                 </tableViewCellContentView>
