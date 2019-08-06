@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        loadUsersOnce()
         return true
     }
 
@@ -43,10 +42,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         VDCoreDataStack.coreDataStack.saveContext()
     }
     
-    func loadUsersOnce() {
-        if !VDDataManager.shared.isPerformed(by: launcheOnceKey) {
-            VDDataManager.shared.fetchAndSaveUsers()
-        }
-    }
 }
 

@@ -11,6 +11,7 @@
 		6000841722F5FB4900C9365D /* VDCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000841622F5FB4900C9365D /* VDCoreDataStack.swift */; };
 		6000841922F629C300C9365D /* VDEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000841822F629C300C9365D /* VDEditViewController.swift */; };
 		6000841B22F6311500C9365D /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6000841A22F6311500C9365D /* UITextField.swift */; };
+		604BD4AD22FA0EDD00291D77 /* VDLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604BD4AC22FA0EDC00291D77 /* VDLaunchViewController.swift */; };
 		604FA66822F55BA90024BD1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604FA66722F55BA90024BD1E /* AppDelegate.swift */; };
 		604FA66D22F55BA90024BD1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 604FA66B22F55BA90024BD1E /* Main.storyboard */; };
 		604FA67222F55BAC0024BD1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 604FA67122F55BAC0024BD1E /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		6000841622F5FB4900C9365D /* VDCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDCoreDataStack.swift; sourceTree = "<group>"; };
 		6000841822F629C300C9365D /* VDEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDEditViewController.swift; sourceTree = "<group>"; };
 		6000841A22F6311500C9365D /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		604BD4AC22FA0EDC00291D77 /* VDLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDLaunchViewController.swift; sourceTree = "<group>"; };
 		604FA66422F55BA90024BD1E /* ShowList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		604FA66722F55BA90024BD1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		604FA66C22F55BA90024BD1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,9 +140,10 @@
 		604FA68522F5753A0024BD1E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				604FA68622F575520024BD1E /* VDBaseViewController.swift */,
 				604FA69A22F5B8510024BD1E /* VDListTableViewController.swift */,
 				6000841822F629C300C9365D /* VDEditViewController.swift */,
+				604BD4AC22FA0EDC00291D77 /* VDLaunchViewController.swift */,
+				604FA68622F575520024BD1E /* VDBaseViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				604FA69922F5B7C40024BD1E /* VDListTableViewCell.swift in Sources */,
 				604FA69022F5865E0024BD1E /* VDCoreDataManager.swift in Sources */,
 				6000841922F629C300C9365D /* VDEditViewController.swift in Sources */,
+				604BD4AD22FA0EDD00291D77 /* VDLaunchViewController.swift in Sources */,
 				604FA66822F55BA90024BD1E /* AppDelegate.swift in Sources */,
 				604FA67F22F56EDE0024BD1E /* Constants.swift in Sources */,
 				604FA68722F575520024BD1E /* VDBaseViewController.swift in Sources */,

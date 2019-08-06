@@ -22,20 +22,22 @@ class VDCoreDataManager {
        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: context , sectionNameKeyPath: nil, cacheName: nil)
     }()
     
-    func save(_ users: [VDUser]) {
+    func save(_ users: [VDUser], _ imagesData: [Data]) {
         let context = VDCoreDataStack.coreDataStack.persistentContainer.viewContext
         let privateMoc = VDCoreDataStack.coreDataStack.privateMoc
         privateMoc.parent = context
         privateMoc.performAndWait {
             guard let entity = NSEntityDescription.entity(forEntityName: EntityNames.users, in: privateMoc) else {return}
-            for user in users {
+            for (index, user) in users.enumerated() {
                 let newUser = NSManagedObject(entity: entity, insertInto: privateMoc)
                 newUser.setValue(user.name, forKey: "name")
                 newUser.setValue(user.id, forKey: "id")
+                newUser.setValue(imagesData[index], forKey: "imageData")
             }
             saveContext(privateMoc)
         }
         saveContext(context)
+        
     }
     
     func update(_ person: User?, name: String?) {
@@ -56,19 +58,6 @@ class VDCoreDataManager {
         }
         saveContext(context)
     }
-    
-//    func fetchUsers(completion: ([User]?) -> Void) {
-//        let context = VDCoreDataStack.coreDataStack.persistentContainer.viewContext
-//        let privateMoc = VDCoreDataStack.coreDataStack.privateMoc
-//        privateMoc.parent = context
-//        privateMoc.performAndWait {
-//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.users)
-//            do {
-//                 let data = try privateMoc.fetch(request) as? [User]
-//                completion(data)
-//            } catch {}
-//        }
-//    }
     
     //MARK: - Private
     

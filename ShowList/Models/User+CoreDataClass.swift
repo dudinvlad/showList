@@ -20,7 +20,7 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
     
-    @NSManaged public var imagePathKey: String?
+    @NSManaged public var imageData: Data?
     @NSManaged public var name: String?
     @NSManaged public var id: String?
     

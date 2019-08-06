@@ -19,6 +19,12 @@ class VDRouter {
     
     //MARK: - Public
     
+    func setListScreen() {
+        let listViewController = viewController(storyboard: Storyboards.main, type: VDListTableViewController.self)
+        let listNavigationController = UINavigationController(rootViewController: listViewController)
+        UIApplication.shared.delegate?.window??.rootViewController = listNavigationController
+    }
+    
     func showEditScreen(with item: User?) {
         let editViewController = viewController(storyboard: Storyboards.main, type: VDEditViewController.self)
         editViewController.person = item

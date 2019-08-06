@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VDBaseViewController: UITableViewController {
+class VDBaseViewController: UIViewController {
     
     lazy var router : VDRouter = {
        VDRouter(self.navigationController)

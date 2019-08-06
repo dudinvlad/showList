@@ -23,12 +23,8 @@ class VDListTableViewCell: UITableViewCell {
     
     func load(with person: User?) {
         nameLabel.text = person?.name
-        imageViewAvatar.kf.indicatorType = .activity
-        if let id = person?.id {
-            let urlString = String(format: API.imageUrl.rawValue, id)
-            let url = URL(string: urlString)
-            imageViewAvatar.kf.setImage(with: url, options: [.cacheOriginalImage])
-        }
+        guard let imageData = person?.imageData else { return }
+        imageViewAvatar.image = UIImage(data: imageData)
     }
 
 }

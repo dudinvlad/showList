@@ -9,10 +9,12 @@
 import UIKit
 import CoreData
 
-class VDListTableViewController: VDBaseViewController {
+class VDListTableViewController: VDBaseViewController, UITableViewDelegate, UITableViewDataSource {
     
     let alertMessage = "Welcome!"
     let fetchedController = VDCoreDataManager.shared.fetchedResultController
+    let refreshControl = UIRefreshControl()
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +28,19 @@ class VDListTableViewController: VDBaseViewController {
     
     //MARK: - DataSource
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let users = fetchedController.sections?[section]
         return users?.numberOfObjects ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: VDListTableViewCell.self), for: indexPath) as! VDListTableViewCell
         let person = fetchedController.object(at: indexPath) as? User
         cell.load(with: person)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let person = fetchedController.object(at: indexPath) as? User
         router.showEditScreen(with: person)
     }
@@ -51,7 +53,8 @@ class VDListTableViewController: VDBaseViewController {
     }
     
     private func refreshControlSetup() {
-        self.refreshControl?.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func fetchedControllerSetup() {
@@ -65,7 +68,7 @@ class VDListTableViewController: VDBaseViewController {
     
     @objc private func refreshAction() {
         self.tableView.reloadData()
-        self.refreshControl?.endRefreshing()
+        self.refreshControl.endRefreshing()
     }
 
 }
@@ -80,7 +83,7 @@ extension VDListTableViewController : NSFetchedResultsControllerDelegate {
         switch type {
         case .update:
             guard let indexPath = indexPath else {return}
-            let cell = tableView.cellForRow(at: indexPath) as! VDListTableViewCell
+            let cell = self.tableView.cellForRow(at: indexPath) as! VDListTableViewCell
             let person = self.fetchedController.object(at: indexPath) as? User
             cell.load(with: person)
         default:
